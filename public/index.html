@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="MyApp">
 <head>
   <meta charset="utf-8">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
   <script src="app.js" charset="utf-8"></script>
 
   <link rel="stylesheet" href="main.css">
@@ -13,7 +14,7 @@
 </head>
 
 
-<body>
+<body ng-controller="mainController as ctrl">
   <!-- Main nav starts -->
   <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">
@@ -42,6 +43,23 @@
       </div>
     </div>
     <!--Main nav ends  -->
+
+    <div ng-repeat="sport in ctrl.sports" ng-click="ctrl.showSportEvents($id)">
+    <ul>
+        <li>{{sport.name}}</li>
+        <div ng-if="ctrl.showSpecificSportEvents === $id">
+            <div ng-repeat="event in ctrl.events">
+                <h3>{{event.name}}</h3>
+            </div>
+        </div>
+    </ul>
+    </div>
+
+
+
+
+
+
     <!-- Modal One for Contact us -->
     <div class="modal fade" id="mymodal">
       <div class="modal-dialog">
