@@ -22,7 +22,7 @@ app.controller('mainController', ['$http', function($http){
     this.getEvents = function() {
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/events'
+            url: 'http://localhost:3000/sports/1/events'
         }).then(function(result){
             console.log(result);
             controller.events = result.data
@@ -34,7 +34,7 @@ app.controller('mainController', ['$http', function($http){
     this.addEvent = function() {
         $http({
             method: 'POST',
-            url: 'http://localhost:3000/events',
+            url: 'http://localhost:3000/sports/1/events',
             data: this.createformdata
         }).then(function(result){
             controller.createformdata = {};
@@ -45,7 +45,7 @@ app.controller('mainController', ['$http', function($http){
     this.editEvent = function() {
         $http({
             method: 'PUT',
-            url: 'http://localhost:3000/events/',
+            url: 'http://localhost:3000/sports/1/events/4',
             data: this.editformdata
         }).then(function(result){
             controller.editformdata = {};
@@ -56,12 +56,18 @@ app.controller('mainController', ['$http', function($http){
     this.removeEvent = function() {
         $http({
             method: 'DELETE',
-            url: 'http://localhost:3000/events',
+            url: 'http://localhost:3000/sports/1/events/3',
             data: this.deletedata
         }).then(function(result){
+            console.log('deleting');
             console.log(result);
         });
     };
+
+    this.showSportEvents = function(id) {
+        this.showSpecificSportEvents = id;
+        console.log(this.showSpecificSportEvents);
+    }
 
 
 
