@@ -93,15 +93,11 @@ app.controller('mainController', ['$http', function($http){
         every(function (key) { return !filterObj[key]; });
     }
 
-    this.filterEventsBySport = function(event) {
-      var filter = this.eventSearchFilterSports;
-      return filter[event.sport.name] || noFilter(filter)
-    }.bind(this)
-
-    this.filterEventsByGender = function(event) {
-      console.log(event);
-      var filter = this.eventSearchFilterGenders;
-      return filter[event.gender] || noFilter(filter)
+    this.filterEvents = function(event) {
+      var sportFilter = this.eventSearchFilterSports;
+      var genderFilter = this.eventSearchFilterGenders;
+      return (sportFilter[event.sport.name] || noFilter(sportFilter)) &&
+             (genderFilter[event.gender] || noFilter(genderFilter))
     }.bind(this)
 
 }]);
