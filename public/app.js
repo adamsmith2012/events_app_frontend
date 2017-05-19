@@ -19,10 +19,12 @@ app.controller('mainController', ['$http', function($http){
         });
     };
 
-    this.getEvents = function() {
+    this.getEvents = function(id) {
+        console.log(id);
+        this.sport_id = id;
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/sports/1/events'
+            url: 'http://localhost:3000/sports/'+ id + '/events'
         }).then(function(result){
             console.log(result);
             controller.events = result.data

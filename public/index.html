@@ -44,6 +44,23 @@
     </div>
     <!--Main nav ends  -->
 
+
+    <div ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id)">
+
+        <div>{{sport.name}}</div>
+        <div ng-if="sport.id === ctrl.sport_id">
+            <div ng-repeat="event in ctrl.events">
+                <h3>{{event.name}}</h3>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
     <!-- Partials -->
     <div ng-if="ctrl.selected_partial=='events'" ng-include="'partials/event-search.html'"></div>
 
@@ -51,6 +68,7 @@
 
 
     <!-- End Partials -->
+
 
     <!-- Modal One for Contact us -->
     <div class="modal fade" id="mymodal">
