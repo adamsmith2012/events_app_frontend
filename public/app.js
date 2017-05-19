@@ -79,12 +79,12 @@ app.controller('mainController', ['$http', function($http){
             url: 'http://localhost:3000/sports'
         }).then(function(result){
             controller.sports = result.data;
-            if(controller.sports[id] != id){
+
                 for(i=0; i<controller.sports.length; i++){
                     controller.sports[i].is_showing = false
                 }
                 controller.sports[id - 1].is_showing = true;
-            }
+
         });
     };
 
