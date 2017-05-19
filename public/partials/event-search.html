@@ -1,3 +1,39 @@
-<div class="">
-  SJFOIJOEIJEOIJ
+<div class="container">
+  <div class="col-sm-3 bordered">
+    <h5>Sport:</h5>
+    <div ng-repeat="sport in ctrl.sports" class="checkbox">
+      <label>
+        <input ng-model="ctrl.eventSearchFilterSports[sport.name]" type="checkbox" value="{{sport.name}}">
+        {{sport.name}}
+      </label>
+    </div>
+    <h5>Gender:</h5>
+    <div class="checkbox">
+      <label>
+        <input ng-model="ctrl.eventSearchFilterGenders['Male']" type="checkbox" value="Male">
+        Male
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input ng-model="ctrl.eventSearchFilterGenders['Female']" type="checkbox" value="Female">
+        Female
+      </label>
+    </div>
+    <div class="checkbox">
+      <label>
+        <input ng-model="ctrl.eventSearchFilterGenders['Coed']" type="checkbox" value="Coed">
+        Coed
+      </label>
+    </div>
+    <button ng-click="ctrl.getAllEvents()" type="button" name="button">Get All events</button>
+
+  </div>
+  <div class="col-sm-9 events bordered">
+    <input ng-model="ctrl.eventSearchTerm" type="text" name="" placeholder="Search">
+    <div ng-repeat="event in ctrl.allEvents | orderBy:'date' | filter:ctrl.filterEventsBySport | filter:ctrl.filterEventsByGender | filter:ctrl.eventSearchTerm">
+      {{ event.name }}
+      {{ event.date }}
+    </div>
+  </div>
 </div>
