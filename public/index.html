@@ -26,8 +26,8 @@
       </button>
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class ="nav navbar-nav navbar-right">
-          <li><a href="#">Event</a></li>
-          <li><a href="#">Create Meetup</a></li>
+          <li><a ng-click="ctrl.selected_partial='events'" href="">Event</a></li>
+          <li><a href="">Create Meetup</a></li>
         </ul>
         <div class="col-md-3 col-md-offset-4">
           <form class="navbar-form" role="search">
@@ -44,6 +44,7 @@
     </div>
     <!--Main nav ends  -->
 
+
     <div ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id)">
 
         <div>{{sport.name}}</div>
@@ -58,6 +59,11 @@
 
 
 
+
+
+    <!-- Partials -->
+    <div ng-if="ctrl.selected_partial=='events'" ng-include="'partials/event-search.html'"></div>
+    <!-- End Partials -->
 
 
     <!-- Modal One for Contact us -->
