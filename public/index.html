@@ -150,7 +150,7 @@
               </div>
               <div class="form-group">
                 <label>Select a sports team</label><br>
-                  <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="1"> Basketball
+                  <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="1">
                   <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="2"> Soccer
                   <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="3"> Football<br>
                   <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="4"> Softball
@@ -161,7 +161,7 @@
               <label>Description</label><textarea placeholder="Enter Event Description" rows="5" cols="50" ng-model="ctrl.createformdata.description"></textarea>
             </div>
             <div class="modal-footer">
-              <input ng-click="ctrl.addEvent(sport_id)" type="submit" class="btn btn-primary" value="Create">
+              <input ng-click="ctrl.addEvent(sports_id)" type="submit" class="btn btn-primary" value="Create">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </form>
         </div>
