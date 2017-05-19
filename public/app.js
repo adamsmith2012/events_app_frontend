@@ -33,7 +33,8 @@ app.controller('mainController', ['$http', function($http){
     this.getSports();
     this.getEvents();
 
-    this.addEvent = function() {
+    this.addEvent = function(sport) {
+      console.log(sport);
         $http({
             method: 'POST',
             url: 'http://localhost:3000/sports/1/events',
