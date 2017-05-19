@@ -1,3 +1,58 @@
+<<<<<<< HEAD
+<div class="container">
+  <div class="col-sm-3 ">
+    <div class="panel panel-default">
+      <div class="panel-heading">Sort Options:</div>
+      <div class="panel-body">
+        <h5>Sport:</h5>
+        <div ng-repeat="sport in ctrl.sports" class="checkbox">
+          <label>
+            <input ng-model="ctrl.eventSearchFilterSports[sport.name]" type="checkbox" value="{{sport.name}}">
+            {{sport.name}}
+          </label>
+        </div>
+        <h5>Gender:</h5>
+        <div class="checkbox">
+          <label>
+            <input ng-model="ctrl.eventSearchFilterGenders['male']" type="checkbox" value="male">
+            Male
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input ng-model="ctrl.eventSearchFilterGenders['female']" type="checkbox" value="female">
+            Female
+          </label>
+        </div>
+        <div class="checkbox">
+          <label>
+            <input ng-model="ctrl.eventSearchFilterGenders['coed']" type="checkbox" value="coed">
+            Coed
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-9 events">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2 class="panel-title">Events
+          <input class="pull-right"  ng-model="ctrl.eventSearchTerm" type="text" name="" placeholder="Search">
+        </h2>
+      </div>
+      <div class="panel-body">
+        <div class="panel panel-default" ng-repeat="event in ctrl.allEvents | orderBy:'date' | filter:ctrl.filterEvents | filter:ctrl.eventSearchTerm">
+          <div class="panel-heading">
+            <h5 class="panel-title">{{ event.name }}
+              <small class="pull-right">{{ event.date | date : "short"}}</small>
+            </h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+=======
 <div class="">
     <li><a ng-click="ctrl.selected_partial='eventShowPage'" href="">Event Show Page</a></li>
+>>>>>>> 13e06b37b4820aba967553e4673ef8f0464d4f23
 </div>

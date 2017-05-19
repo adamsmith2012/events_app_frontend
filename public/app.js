@@ -6,6 +6,8 @@ app.controller('mainController', ['$http', function($http){
     this.message = "angular works!";
     this.sports = [];
     this.events = [];
+    this.eventSearchFilterSports = {};
+    this.eventSearchFilterGenders = {};
     var controller = this;
 
 
@@ -20,6 +22,7 @@ app.controller('mainController', ['$http', function($http){
         });
     };
 
+    // get events for specific sport
     this.getEvents = function(id) {
         this.sport_id = id;
         $http({
@@ -102,6 +105,31 @@ app.controller('mainController', ['$http', function($http){
 
 
 
+    /* ***** Events Page **** */
 
+    // get events for all sports
+    this.getAllEvents = function() {
+      $http({
+        method: 'GET',
+        url: 'http://localhost:3000/sports/all/events'
+      }).then(function(result){
+        console.log(result);
+        controller.allEvents = result.data
+      });
+    };
+
+    // from http://stackoverflow.com/questions/23983322/angularjs-checkbox-filter
+    function noFilter(filterObj) {
+      return Object.
+        keys(filterObj).
+        every(function (key) { return !filterObj[key]; });
+    }
+
+    this.filterEvents = function(event) {
+      var sportFilter = this.eventSearchFilterSports;
+      var genderFilter = this.eventSearchFilterGenders;
+      return (sportFilter[event.sport.name] || noFilter(sportFilter)) &&
+             (genderFilter[event.gender] || noFilter(genderFilter))
+    }.bind(this)
 
 }]);
