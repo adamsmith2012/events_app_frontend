@@ -18,17 +18,20 @@ app.controller('mainController', ['$http', function($http){
         }).then(function(result){
             console.log(result);
             controller.sports = result.data;
+            console.log(controller.sports);
         });
     };
 
     // get events for specific sport
-    this.getEvents = function() {
+    this.getEvents = function(id) {
+        this.sport_id = id;
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/sports/1/events'
+            url: 'http://localhost:3000/sports/'+ id + '/events'
         }).then(function(result){
             console.log(result);
             controller.events = result.data
+            console.log(controller.events);
         });
     };
     this.getSports();
@@ -68,10 +71,39 @@ app.controller('mainController', ['$http', function($http){
         });
     };
 
-    this.showSportEvents = function(id) {
-        this.showSpecificSportEvents = id;
-        console.log(this.showSpecificSportEvents);
-    }
+
+    this.goToSportsShowPage = function(id) {
+        console.log(id);
+        $http({
+            method: 'GET',
+            url: 'http://localhost:3000/sports'
+        }).then(function(result){
+            controller.sports = result.data;
+            if(controller.sports[id] != id){
+                for(i=0; i<controller.sports.length; i++){
+                    controller.sports[i].is_showing = false
+                }
+                controller.sports[id - 1].is_showing = true;
+            }
+        });
+    };
+
+    this.leaveSportsShowPage = function(id) {
+        console.log(id);
+        $http({
+            method: 'GET',
+            url: 'http://localhost:3000/sports'
+        }).then(function(result){
+
+                for(i=0; i<controller.sports.length; i++){
+                    controller.sports[i].is_showing = false
+                }
+
+        });
+    };
+
+
+
 
     /* ***** Events Page **** */
 
