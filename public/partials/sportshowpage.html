@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <div ng-repeat="sport in ctrl.sports" ng-click="" ng-if="sport.is_showing">
+            <div class="mainsport">{{sport.name}} Events</div>
+
+            <div>
+                <ul>
+
+
+                        <div ng-if="sport.id === ctrl.sport_id">
+                            <div class="sportscontainer" ng-repeat="event in ctrl.events" ng-click="ctrl.leaveSportsShowPage(); ctrl.selected_partial='sport'">
+
+                                <!-- ng-click selected partial = event show page -->
+                                <li>{{event.name}}</li>
+                                <p>{{event.description}}</p><br/>
+                                <p>Cost: ${{event.cost}}</p>
+                                <img ng-src={{event.img}} >
+
+                            </div>
+                        </div>
+
+
+                </ul>
+            </div>
+
+
+
+        </div>
+
+
+
+
+    </body>
+</html>
