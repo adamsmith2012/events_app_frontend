@@ -1,0 +1,11 @@
+<h1>Event Show Page</h1>
+<div ng-click="ctrl.getEvents(sport.id)">
+        <div ng-repeat="event in ctrl.events">
+            <h1>{{event.name}}</h1>
+            <h5>{{event.date | date:'MM/dd/yyyy @ h:mma'}}</h5>
+            <h5>{{event.description}}</h5>
+            <h5>{{event.location}}</h5>
+            <h5>{{event.Cost}}</h5>
+            <h5>{{event.gender}}</h5>
+        </div>
+</div>

@@ -18,7 +18,7 @@
   <!-- Main nav starts -->
   <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">
-      <a href="/" class="navbar-brand" ng-click="ctrl.getSports(); ctrl.selected_partial='none'">Meetup</a>
+      <a href="/" class="navbar-brand">Meetup</a>
       <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -26,8 +26,13 @@
       </button>
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class ="nav navbar-nav navbar-right">
+<<<<<<< HEAD
           <li><a ng-click="ctrl.selected_partial='events'; ctrl.getAllEvents();" href="">Event</a></li>
           <li><a href="">Create Meetup</a></li>
+=======
+          <li><a ng-click="ctrl.selected_partial='events'" href="">Event</a></li>
+          <li><a href="" data-toggle="modal" data-target="#createMeetUp">Create Meetup</a></li>
+>>>>>>> 13e06b37b4820aba967553e4673ef8f0464d4f23
         </ul>
         <div class="col-md-3 col-md-offset-4">
           <form class="navbar-form" role="search">
@@ -45,18 +50,16 @@
     <!--Main nav ends  -->
 
 
+    <div ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id);ctrl.selected_partial='eventShowPage'">
 
-        <div ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id); ctrl.goToSportsShowPage(sport.id); ctrl.selected_partial='sport'" ng-if="sport.is_showing">
-
-            <div>
-
-                {{sport.name}}
-
+        <div>{{sport.name}}</div>
+        <div ng-if="sport.id === ctrl.sport_id">
+            <div ng-repeat="event in ctrl.events">
+                <h3>{{event.name}}</h3>
             </div>
-
-
-
         </div>
+
+    </div>
 
 
 
@@ -66,7 +69,7 @@
     <!-- Partials -->
     <div ng-if="ctrl.selected_partial=='events'" ng-include="'partials/event-search.html'"></div>
 
-    <div ng-if="ctrl.selected_partial=='sport'" ng-include="'partials/sportshowpage.html'"></div>
+    <div ng-if="ctrl.selected_partial=='eventShowPage'" ng-include="'partials/event-show-page.html'"></div>
 
     <!-- End Partials -->
 
@@ -110,7 +113,69 @@
         </div>
       </div>
     </div>
-    <!-- About usmodal ends -->
+    <!-- About us modal ends -->
+
+
+
+  <!-- Create Meetup Modal -->
+    <div class="modal fade" id="createMeetUp">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close"                     data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <h3 class="modal-title">Create Event</h3>
+          </div>
+          <div class="modal-body">
+          <div id="form">
+
+            <form>
+              <div class="form-group">
+                <label>Name: </label>
+                <input type="text" class="form-control" placeholder="Name" required ng-model="ctrl.createformdata.name">
+              </div>
+              <div class="form-group">
+                <label>Date: </label><input class="form-control" type="Date" required ng-model="ctrl.createformdata.date">
+              </div>
+              <div class="form-group">
+                <label>Cost: </label><input type="text" class="form-control" placeholder="Cost" required ng-model="ctrl.createformdata.cost">
+              </div>
+              <div class="form-group">
+                <label>Event Image</label><input type="text" class="form-control" placeholder="Image" required ng-model="ctrl.createformdata.img">
+              </div>
+              <div class="form-group">
+                <label>Location</label><input type="text" class="form-control" placeholder="location" required ng-model="ctrl.createformdata.location">
+              </div>
+              <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="Male"> Male
+                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="Female"> Female
+                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="Coed"> Co-ed
+              </div>
+              <div class="form-group">
+                <label>Select a sports team</label><br>
+                  <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="1">
+                  <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="2"> Soccer
+                  <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="3"> Football<br>
+                  <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="4"> Softball
+                  <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="5"> Baseball
+                  <input type="radio" name="sports" ng-model="ctrl.createformdata.sport_id" value="6"> Kickball
+              </div>
+
+              <label>Description</label><textarea placeholder="Enter Event Description" rows="5" cols="50" ng-model="ctrl.createformdata.description"></textarea>
+            </div>
+            <div class="modal-footer">
+              <input ng-click="ctrl.addEvent(sports_id)" type="submit" class="btn btn-primary" value="Create">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </form>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End create Meetup Modal -->
+
 
 
     <!--Footer Nav Starts  -->
