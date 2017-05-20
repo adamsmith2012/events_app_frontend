@@ -145,20 +145,23 @@
               </div>
               <div class="form-group">
                 <label>Gender:</label>
-                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="Male"> Male
-                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="Female"> Female
-                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="Coed"> Co-ed
+                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="male"> Male
+                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="female"> Female
+                <input type="radio" name="gender" ng-model="ctrl.createformdata.gender" value="coed"> Co-ed
               </div>
+              <!--From Adams search page  -->
               <div class="form-group">
                 <label>Select a sports team:</label><br>
                 <div ng-repeat="sport in ctrl.sports" class="checkbox">
                   <label>
-                    <input ng-model="ctrl.createformdata" type="radio" name="radio"value="{{sport.id}}">
+                    <input ng-model="ctrl.createformdata.sport_id" type="radio" name="radio"value="{{sport.id}}">
                     {{sport.name}}
                     {{sport.id}}
                   </label>
                 </div>
               </div>
+
+
             </div>
             <div class="modal-footer">
               <input ng-click="ctrl.addEvent(sports_id)" type="submit" class="btn btn-primary" value="Create">

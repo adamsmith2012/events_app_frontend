@@ -2,6 +2,13 @@ console.log('app.js');
 
 var app = angular.module('MyApp', []);
 
+if(window.location.origin == "http://localhost:8000") {
+  DB_URL = "http://localhost:3000";
+}
+else {
+  DB_URL = "https://events-app-api.herokuapp.com";
+}
+
 app.controller('mainController', ['$http', function($http){
     this.message = "angular works!";
     this.sports = [];
@@ -14,7 +21,7 @@ app.controller('mainController', ['$http', function($http){
     this.getSports = function() {
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/sports'
+            url: DB_URL + '/sports'
         }).then(function(result){
             console.log(result);
             controller.sports = result.data;
@@ -27,7 +34,7 @@ app.controller('mainController', ['$http', function($http){
         this.sport_id = id;
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/sports/'+ id + '/events'
+            url: DB_URL + '/sports/'+ id + '/events'
         }).then(function(result){
             console.log(result);
             controller.events = result.data
@@ -55,7 +62,7 @@ app.controller('mainController', ['$http', function($http){
 console.log(sport);
         $http({
             method: 'POST',
-            url: 'http://localhost:3000/sports/' + sport + '/events',
+            url: DB_URL + '/sports/1/events',
             data: this.createformdata
         }).then(function(result){
             controller.createformdata = {};
@@ -66,7 +73,7 @@ console.log(sport);
     this.editEvent = function() {
         $http({
             method: 'PUT',
-            url: 'http://localhost:3000/sports/1/events/4',
+            url: DB_URL + '/sports/1/events/4',
             data: this.editformdata
         }).then(function(result){
             controller.editformdata = {};
@@ -77,7 +84,7 @@ console.log(sport);
     this.removeEvent = function() {
         $http({
             method: 'DELETE',
-            url: 'http://localhost:3000/sports/1/events/3',
+            url: DB_URL + '/sports/1/events/3',
             data: this.deletedata
         }).then(function(result){
             console.log('deleting');
@@ -90,7 +97,7 @@ console.log(sport);
         console.log(id);
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/sports'
+            url: DB_URL + '/sports'
         }).then(function(result){
             controller.sports = result.data;
 
@@ -106,7 +113,7 @@ console.log(sport);
         console.log(id);
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/sports'
+            url: DB_URL + '/sports'
         }).then(function(result){
 
                 for(i=0; i<controller.sports.length; i++){
@@ -125,7 +132,7 @@ console.log(sport);
     this.getAllEvents = function() {
       $http({
         method: 'GET',
-        url: 'http://localhost:3000/sports/all/events'
+        url: DB_URL + '/sports/all/events'
       }).then(function(result){
         console.log(result);
         controller.allEvents = result.data
