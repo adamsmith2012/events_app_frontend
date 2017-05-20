@@ -1,12 +1,13 @@
+
 <div class="container">
   <div class="col-sm-3 ">
     <div class="panel panel-default">
       <div class="panel-heading">Sort Options:</div>
       <div class="panel-body">
         <h5>Sport:</h5>
-        <div ng-repeat="sport in ctrl.sports" class="checkbox">
+        <div ng-repeat="sport in ctrl.sports" class="radio">
           <label>
-            <input ng-model="ctrl.eventSearchFilterSports[sport.name]" type="checkbox" value="{{sport.name}}">
+            <input ng-model="ctrl.eventSearchFilterSports[sport.name]" type="radio" value="{{sport.name}}">
             {{sport.name}}
           </label>
         </div>
@@ -42,7 +43,7 @@
       <div class="panel-body">
         <div class="panel panel-default" ng-repeat="event in ctrl.allEvents | orderBy:'date' | filter:ctrl.filterEvents | filter:ctrl.eventSearchTerm">
           <div class="panel-heading">
-            <h5 class="panel-title">{{ event.name }}
+            <h5 ng-click="ctrl.getSpecificEvent(event.id); ctrl.selected_partial = 'eventShowPage';ctrl.leaveSportsShowPage()" class="panel-title">{{ event.name }}
               <small class="pull-right">{{ event.date | date : "short"}}</small>
             </h5>
           </div>
@@ -50,4 +51,3 @@
       </div>
     </div>
   </div>
-</div>
