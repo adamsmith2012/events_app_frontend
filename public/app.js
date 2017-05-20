@@ -6,7 +6,7 @@ if(window.location.origin == "http://localhost:8000") {
   DB_URL = "http://localhost:3000";
 }
 else {
-  DB_URL = "https://sports-events.herokuapp.com";
+  DB_URL = "https://events-app-api.herokuapp.com";
 }
 
 app.controller('mainController', ['$http', function($http){
