@@ -59,11 +59,12 @@ app.controller('mainController', ['$http', function($http){
     this.getSports();
     this.getEvents();
 
-    this.addEvent = function(sport) {
-console.log(sport);
+    this.addEvent = function() {
+      console.log("hello");
+      var sport = this.createformdata.sport_id;
         $http({
             method: 'POST',
-            url: DB_URL + '/sports/1/events',
+            url: DB_URL + '/sports/' + sport +'/events',
             data: this.createformdata
         }).then(function(result){
             controller.createformdata = {};
