@@ -47,7 +47,7 @@ app.controller('mainController', ['$http', function($http){
         this.sport_id = id;
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/sports/'+ id + '/events/' + id
+            url: DB_URL + '/sports/'+ id + '/events/' + id
         }).then(function(result){
             console.log(result);
             controller.specificEvents = result.data
