@@ -8,6 +8,7 @@ app.controller('mainController', ['$http', function($http){
     this.events = [];
     this.eventSearchFilterSports = {};
     this.eventSearchFilterGenders = {};
+    this.selected_partial = 'index';
     var controller = this;
 
 

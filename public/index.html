@@ -45,12 +45,7 @@
     <!--Main nav ends  -->
 
 
-    <div ng-if="sport.is_showing" ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id);ctrl.goToSportsShowPage(sport.id);ctrl.selected_partial='sport'">
 
-        <div>{{sport.name}}</div>
-
-
-    </div>
 
 
 
@@ -58,6 +53,8 @@
 
 
     <!-- Partials -->
+    <div ng-if="ctrl.selected_partial=='index'" ng-include="'partials/index-partial.html'"></div>
+
     <div ng-if="ctrl.selected_partial=='events'" ng-include="'partials/event-search.html'"></div>
 
     <div ng-if="ctrl.selected_partial=='eventShowPage'" ng-include="'partials/event-show-page.html'"></div>
