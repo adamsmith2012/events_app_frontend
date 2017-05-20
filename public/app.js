@@ -31,17 +31,31 @@ app.controller('mainController', ['$http', function($http){
         }).then(function(result){
             console.log(result);
             controller.events = result.data
+            console.log("===============");
             console.log(controller.events);
         });
     };
+    this.getSpecificEvent = function(id) {
+        this.sport_id = id;
+        $http({
+            method: 'GET',
+            url: 'http://localhost:3000/sports/'+ id + '/events/' + id
+        }).then(function(result){
+            console.log(result);
+            controller.specificEvents = result.data
+            console.log("===============");
+            console.log(controller.specificEvents);
+        });
+    };
+
     this.getSports();
     this.getEvents();
 
     this.addEvent = function(sport) {
-      console.log(sport);
+console.log(sport);
         $http({
             method: 'POST',
-            url: 'http://localhost:3000/sports/1/events',
+            url: 'http://localhost:3000/sports/' + sport + '/events',
             data: this.createformdata
         }).then(function(result){
             controller.createformdata = {};
@@ -79,12 +93,12 @@ app.controller('mainController', ['$http', function($http){
             url: 'http://localhost:3000/sports'
         }).then(function(result){
             controller.sports = result.data;
-            if(controller.sports[id] != id){
+
                 for(i=0; i<controller.sports.length; i++){
                     controller.sports[i].is_showing = false
                 }
                 controller.sports[id - 1].is_showing = true;
-            }
+
         });
     };
 
