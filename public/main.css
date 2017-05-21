@@ -1,7 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Diplomata|Exo|Noto+Serif');
+
+body {
+  background-image: url("https://static.pexels.com/photos/19664/pexels-photo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  font-family: "Noto Serif";
+}
+
+.navbar-brand {
+  font-family: "Barrio" !important;
+}
+
 .modal-dialog{
   margin-top: 100px !important;
 }
-
 
 #form{
   width: 300px;
@@ -11,6 +24,7 @@
 .mainsport {
     text-align: center;
     font-size: 4em;
+    color: white;
 }
 .sportscontainer {
     border: 1px solid black;
@@ -23,6 +37,10 @@
     padding: 10px;
     list-style: none;
 
+}
+
+.sport-panel {
+  /*opacity: .9;*/
 }
 
 .sport-panel:hover {
