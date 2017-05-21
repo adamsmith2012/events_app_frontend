@@ -94,6 +94,8 @@ app.controller('mainController', ['$http', function($http){
         }).then(function(result){
             console.log('deleting');
             console.log(result);
+            controller.getAllEvents();
+            controller.selected_partial='events';
         });
     };
 
