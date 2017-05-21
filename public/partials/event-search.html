@@ -5,9 +5,9 @@
       <div class="panel-heading">Sort Options:</div>
       <div class="panel-body">
         <h5>Sport:</h5>
-        <div ng-repeat="sport in ctrl.sports" class="radio">
+        <div ng-repeat="sport in ctrl.sports" class="checkbox">
           <label>
-            <input ng-model="ctrl.eventSearchFilterSports[sport.name]" type="radio" value="{{sport.name}}">
+            <input ng-model="ctrl.eventSearchFilterSports[sport.name]" type="checkbox" value="{{sport.name}}">
             {{sport.name}}
           </label>
         </div>
