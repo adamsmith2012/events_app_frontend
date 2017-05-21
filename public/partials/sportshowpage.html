@@ -1,27 +1,25 @@
-
-
-        <div ng-repeat="sport in ctrl.sports" ng-click="" ng-if="sport.is_showing">
-            <div class="mainsport">{{sport.name}} Events</div>
-
-            <div>
-                <ul>
-
-
-                        <div ng-if="sport.id === ctrl.sport_id">
-                            <div class="sportscontainer" ng-repeat="event in ctrl.events" ng-click="ctrl.leaveSportsShowPage(); ctrl.selected_partial='sport';
-                            ctrl.getSpecificEvent(event.id); ctrl.selected_partial = 'eventShowPage'">
-                                <li>{{event.name}}</li>
-                                <p>{{event.description}}</p><br/>
-                                <p>Cost: ${{event.cost}}</p>
-                                <img ng-src={{event.img}} >
-
-                            </div>
-                        </div>
-
-
-                </ul>
-            </div>
-
-
-
+<div class="container" ng-repeat="sport in ctrl.sports" ng-click="" ng-if="sport.is_showing">
+  <div class="mainsport">{{sport.name}} Events</div>
+    <div ng-if="sport.id === ctrl.sport_id">
+      <div class="panel panel-default" ng-repeat="event in ctrl.events | orderBy:'date'" ng-click="ctrl.leaveSportsShowPage(); ctrl.selected_partial='sport';
+        ctrl.getSpecificEvent(event.id); ctrl.selected_partial = 'eventShowPage'">
+        <div class="panel-heading">
+          <h5 class="panel-title">{{event.name}}
+            <small class="pull-right">{{ event.date | date : "short"}}</small>
+          </h5>
         </div>
+        <div class="panel-body">
+          <div class="col-sm-3">
+            <img class="img-responsive pull-left" ng-src={{event.img}} >
+            <div class="clearfix"></div>
+          </div>
+          <div class="col-sm-9">
+            <p>{{event.description}}</p><br/>
+            <p>Gender: {{event.gender}}</p>
+            <p>Cost: ${{event.cost}}</p>
+            <p>Location: {{event.location}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
