@@ -8,6 +8,14 @@ body {
   font-family: "Noto Serif";
 }
 
+.container a {
+  color: black;
+}
+
+.container a:hover {
+  text-decoration: none;
+}
+
 .navbar-brand {
   font-family: "Barrio" !important;
 }
@@ -45,4 +53,19 @@ body {
 
 .sport-panel:hover {
   cursor: pointer;
+}
+
+.logo {
+    position: absolute;
+    margin-top: 10px;
+    width: 100px;
+}
+.navbar {
+    height: 80px;
+    background-color: moccasin;
+    font-size: 18px;
+}
+
+.navbar li {
+    margin-top: 32px;
 }

@@ -43,9 +43,11 @@
       <div class="panel-body">
         <div class="panel panel-default" ng-repeat="event in ctrl.allEvents | orderBy:'date' | filter:ctrl.filterEvents | filter:ctrl.eventSearchTerm">
           <div class="panel-heading">
-            <h5 ng-click="ctrl.getSpecificEvent(event.id); ctrl.selected_partial = 'eventShowPage';ctrl.leaveSportsShowPage()" class="panel-title">{{ event.name }}
-              <small class="pull-right">{{ event.date | date:'MM/dd/yyyy @ h:mma'}}</small>
-            </h5>
+            <a href="/event/show">
+              <h5 ng-click="ctrl.getSpecificEvent(event.id)" class="panel-title sport-panel">{{ event.name }}
+                <small class="pull-right">{{ event.date | date:'MM/dd/yyyy @ h:mma'}}</small>
+              </h5>
+            </a>
           </div>
         </div>
       </div>

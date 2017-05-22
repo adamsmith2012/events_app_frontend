@@ -10,6 +10,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 
   <script src="app.js" charset="utf-8"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
 
   <link rel="stylesheet" href="main.css">
   <title></title>
@@ -20,7 +25,9 @@
   <!-- Main nav starts -->
   <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">
-      <a ng-click="ctrl.getSports()" href="/" class="navbar-brand">Meetup</a>
+      <a ng-click="ctrl.getSports()" href="/">
+        <img class="logo" src="https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kjPGDpRBPkR3JwXs1M3EMoAJtlCkogvRj9...kz" class="navbar-brand">
+      </a>
       <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -28,7 +35,7 @@
       </button>
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class ="nav navbar-nav navbar-right">
-          <li><a ng-click="ctrl.getAllEvents();" href="events">Search Events</a></li>
+          <li><a ng-click="ctrl.getAllEvents();" href="/events">Search Events</a></li>
           <li><a href="" data-toggle="modal" data-target="#createMeetUp">Create Event</a></li>
         </ul>
       </div>
@@ -61,7 +68,9 @@
             <h3 class="modal-title">Contact</h3>
             </div>
             <div class="modal-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <div class="">Phone: 304-483-4829</div>
+              <div class="">Email: wdir.remote@wdir.com</div>
+              <div class="">Support: support.remote@wdir.com</div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -81,7 +90,7 @@
             <h3 class="modal-title">About Us</h3>
           </div>
           <div class="modal-body">
-            <p>Meetup brings people together from all around the world Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ul </p>
+            <p>Sports meet up is an online portal that allows members to create sports event and find sports event in various location around the world. </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -145,8 +154,11 @@
 
 
             </div>
+
             <div class="modal-footer">
-              <input ng-click="ctrl.addEvent()" type="submit" class="btn btn-primary" value="Create">
+              <button id="addSubmit" ng-click="ctrl.addEvent()" type="submit" class="btn btn-primary" value="Create" data-dismiss="modal">Create</button>
+
+
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </form>
         </div>

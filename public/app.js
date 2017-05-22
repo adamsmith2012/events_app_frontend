@@ -72,6 +72,8 @@ app.controller('mainController', ['$http', function($http){
         }).then(function(result){
             controller.createformdata = {};
             controller.events.unshift(result.data)
+            controller.getAllEvents();
+            controller.selected_partial='events';
         });
     };
 
@@ -164,24 +166,25 @@ app.controller('mainController', ['$http', function($http){
              (genderFilter[event.gender] || noFilter(genderFilter))
     }.bind(this)
 
+
 }]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) { //.config just runs once on load
     $locationProvider.html5Mode({ enabled: true, requireBase: false }); // tell angular to use push state
     $routeProvider
     .when("/", {
-        templateUrl : "partials/index-partial.html"
+        templateUrl : "/partials/index-partial.html"
     })
     .when("/events", {
-        templateUrl : "partials/event-search.html"
+        templateUrl : "/partials/event-search.html"
     })
     .when("/event/show", {
-        templateUrl : "partials/event-show-page.html"
+        templateUrl : "/partials/event-show-page.html"
     })
-    .when("/sport/show", {
-        templateUrl : "partials/sportshowpage.html"
+    .when("/sports", {
+        templateUrl : "/partials/sportshowpage.html"
     })
     .when("/event/edit", {
-        templateUrl : "partials/edit-event.html"
+        templateUrl : "/partials/edit-event.html"
     });
 }]);
