@@ -46,3 +46,18 @@ body {
 .sport-panel:hover {
   cursor: pointer;
 }
+
+.logo {
+    position: absolute;
+    margin-top: 10px;
+    width: 100px;
+}
+.navbar {
+    height: 80px;
+    background-color: moccasin;
+    font-size: 18px;
+}
+
+.navbar li {
+    margin-top: 32px;
+}
