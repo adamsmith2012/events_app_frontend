@@ -1,19 +1,27 @@
-<h1>Event Show Page</h1>
-<div ng-click="ctrl.selected_partial = 'editEvent'">
-        <div>{{ctrl.specificEvents.name}}  </div>
-        <div>{{ctrl.specificEvents.date | date:'MM/dd/yyyy @ h:mma'}}  </div>
-        <div>{{ctrl.specificEvents.description}}  </div>
-        <div>{{ctrl.specificEvents.location}}  </div>
-        <div>{{ctrl.specificEvents.cost}}  </div>
-        <div>{{ctrl.specificEvents.gender}}  </div>
-        <img ng-src={{ctrl.specificEvents.img}} >
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">{{ctrl.specificEvents.name}}
+        <small class="pull-right">{{ ctrl.specificEvents.date | date:'MM/dd/yyyy @ h:mma'}}</small>
+      </h5>
+    </div>
+    <div class="panel-body">
+      <div class="col-sm-3">
+        <img class="img-responsive" ng-src={{ctrl.specificEvents.img}} >
+      </div>
+      <div class="col-sm-9">
+        <p>{{ctrl.specificEvents.description}}</p><br/>
+        <p>Gender: {{ctrl.specificEvents.gender}}</p>
+        <p>Cost: ${{ctrl.specificEvents.cost}}</p>
+        <p>Location: {{ctrl.specificEvents.location}}</p>
+        <br>
+        <button class="btn btn-default" ng-click="ctrl.selected_partial = 'editEvent'" type="button" name="button">Edit Event</button>
+        <button class="btn btn-danger" ng-click="ctrl.removeEvent(ctrl.specificEvents.sport_id, ctrl.specificEvents.id)" ng-if="ctrl.today > ctrl.event_date" type="button" name="button">Delete This Event</button>
+      </div>
+    </div>
 
 
 
-        <button ng-click="ctrl.removeEvent(ctrl.specificEvents.sport_id, ctrl.specificEvents.id)" ng-if="ctrl.today > ctrl.event_date" type="button" name="button">Delete This Event</button>
-
-
-
-
-
+  </div>
 </div>
