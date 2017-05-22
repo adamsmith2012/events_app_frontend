@@ -6,6 +6,7 @@ body {
   background-attachment: fixed;
   background-position: center;
   font-family: "Noto Serif";
+  margin-bottom: 100px;
 }
 
 .container a {

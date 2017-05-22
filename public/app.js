@@ -9,7 +9,7 @@ else {
   DB_URL = "https://events-app-api.herokuapp.com";
 }
 
-app.controller('mainController', ['$http', function($http){
+app.controller('mainController', ['$http', '$location', function($http, $location){
     this.message = "angular works!";
     this.sports = [];
     this.events = [];
@@ -88,7 +88,7 @@ app.controller('mainController', ['$http', function($http){
             data: this.editformdata
         }).then(function(result){
             controller.editformdata = {};
-            controller
+            $location.path('/event/show');
         })
     };
 
@@ -101,7 +101,7 @@ app.controller('mainController', ['$http', function($http){
             console.log('deleting');
             console.log(result);
             controller.getAllEvents();
-            controller.selected_partial='events';
+            $location.path('/events');
         });
     };
 
