@@ -1,6 +1,14 @@
-<div ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id);ctrl.goToSportsShowPage(sport.id);ctrl.selected_partial='sport'">
+<div class="container">
+  <div class="col-lg-3 col-sm-4 col-xs-6" ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id);ctrl.goToSportsShowPage(sport.id);ctrl.selected_partial='sport'">
+    <div class="panel panel-default sport-panel">
 
-    <div>{{sport.name}}</div>
+        <div class="panel-heading">
+          <h3 class="panel-title">{{sport.name}}</h3>
+        </div>
 
-
+        <div class="panel-body">
+          <img class="img-responsive" src="{{sport.img}}" alt="">
+        </div>
+    </div>
+  </div>
 </div>

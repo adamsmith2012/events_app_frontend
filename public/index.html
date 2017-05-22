@@ -26,21 +26,13 @@
       </button>
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class ="nav navbar-nav navbar-right">
-          <li><a ng-click="ctrl.selected_partial='events'; ctrl.getAllEvents();" href="">Event</a></li>
-          <li><a href="" data-toggle="modal" data-target="#createMeetUp">Create Meetup</a></li>
+          <li><a ng-click="ctrl.selected_partial='events'; ctrl.getAllEvents();" href="">Search Events</a></li>
+          <li><a href="" data-toggle="modal" data-target="#createMeetUp">Create Event</a></li>
         </ul>
       </div>
     </div>
   </div>
     <!--Main nav ends  -->
-
-
-
-
-
-
-
-
 
     <!-- Partials -->
     <div ng-if="ctrl.selected_partial=='index'" ng-include="'partials/index-partial.html'"></div>
@@ -54,7 +46,6 @@
     <div ng-if="ctrl.selected_partial=='editEvent'" ng-include="'partials/edit-event.html'"></div>
 
     <!-- End Partials -->
-
 
     <!-- Modal One for Contact us -->
     <div class="modal fade" id="mymodal">
@@ -161,8 +152,6 @@
       </div>
     </div>
     <!-- End create Meetup Modal -->
-
-
 
     <!--Footer Nav Starts  -->
     <div class="navbar navbar-inverse navbar-fixed-bottom">

@@ -8,6 +8,12 @@
         <div>{{ctrl.specificEvents.gender}}  </div>
         <img ng-src={{ctrl.specificEvents.img}} >
 
-</div>
 
-<
+
+        <button ng-click="ctrl.removeEvent(ctrl.specificEvents.sport_id, ctrl.specificEvents.id)" ng-if="ctrl.today > ctrl.event_date" type="button" name="button">Delete This Event</button>
+
+
+
+
+
+</div>

@@ -17,6 +17,8 @@ app.controller('mainController', ['$http', function($http){
     this.eventSearchFilterGenders = {};
     this.selected_partial = 'index';
     var controller = this;
+    this.today = new Date(Date.now());
+    console.log(this.today);
 
 
     this.getSports = function() {
@@ -47,12 +49,13 @@ app.controller('mainController', ['$http', function($http){
         this.sport_id = id;
         $http({
             method: 'GET',
-            url: 'http://localhost:3000/sports/'+ id + '/events/' + id
+            url: DB_URL + '/sports/'+ id + '/events/' + id
         }).then(function(result){
             console.log(result);
             controller.specificEvents = result.data
             console.log("===============");
             console.log(controller.specificEvents);
+            controller.event_date = new Date(controller.specificEvents.date);
         });
     };
 
@@ -87,14 +90,16 @@ app.controller('mainController', ['$http', function($http){
         })
     };
 
-    this.removeEvent = function() {
+    this.removeEvent = function(sportid,eventid) {
         $http({
             method: 'DELETE',
-            url: DB_URL + '/sports/1/events/3',
+            url: DB_URL + '/sports/' + sportid + '/events/' + eventid,
             data: this.deletedata
         }).then(function(result){
             console.log('deleting');
             console.log(result);
+            controller.getAllEvents();
+            controller.selected_partial='events';
         });
     };
 
