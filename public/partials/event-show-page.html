@@ -16,7 +16,7 @@
         <p>Cost: ${{ctrl.specificEvents.cost}}</p>
         <p>Location: {{ctrl.specificEvents.location}}</p>
         <br>
-        <button class="btn btn-default" ng-click="ctrl.selected_partial = 'editEvent'" type="button" name="button">Edit Event</button>
+        <a href="/event/edit" class="btn btn-default" ng-click="ctrl.selected_partial = 'editEvent'" type="button" name="button">Edit Event</a>
         <button class="btn btn-danger" ng-click="ctrl.removeEvent(ctrl.specificEvents.sport_id, ctrl.specificEvents.id)" ng-if="ctrl.today > ctrl.event_date" type="button" name="button">Delete This Event</button>
       </div>
     </div>

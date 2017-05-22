@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="col-lg-3 col-sm-4 col-xs-6" ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id);ctrl.goToSportsShowPage(sport.id);ctrl.selected_partial='sport'">
+  <a href="/sports" class="col-lg-3 col-sm-4 col-xs-6" ng-repeat="sport in ctrl.sports" ng-click="ctrl.getEvents(sport.id); ctrl.goToSportsShowPage(sport.id)">
     <div class="panel panel-default sport-panel">
 
         <div class="panel-heading">
@@ -10,5 +10,5 @@
           <img class="img-responsive" src="{{sport.img}}" alt="">
         </div>
     </div>
-  </div>
+  </a>
 </div>
