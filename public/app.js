@@ -171,7 +171,6 @@ app.controller('mainController', ['$http', '$location', function($http, $locatio
 }]);
 
 app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) { //.config just runs once on load
-    $locationProvider.html5Mode({ enabled: true, requireBase: false }); // tell angular to use push state
     $routeProvider
     .when("/", {
         templateUrl : "/partials/index-partial.html"
@@ -188,4 +187,5 @@ app.config(['$routeProvider', '$locationProvider', function($routeProvider, $loc
     .when("/event/edit", {
         templateUrl : "/partials/edit-event.html"
     });
+    $locationProvider.html5Mode({ enabled: true, requireBase: false }); // tell angular to use push state
 }]);
