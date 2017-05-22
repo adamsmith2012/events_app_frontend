@@ -70,3 +70,8 @@ body {
 .navbar li {
     margin-top: 32px;
 }
+
+.modal-body img {
+    margin: auto;
+
+}
