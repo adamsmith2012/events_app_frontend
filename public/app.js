@@ -73,9 +73,13 @@ app.controller('mainController', ['$http', function($http){
     };
 
     this.editEvent = function() {
+      var id = this.specificEvents.id
+
+      console.log(id);
+
         $http({
             method: 'PUT',
-            url: DB_URL + '/sports/1/events/4',
+            url: DB_URL + '/sports/'+ id + '/events/' + id,
             data: this.editformdata
         }).then(function(result){
             controller.editformdata = {};

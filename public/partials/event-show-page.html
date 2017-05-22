@@ -1,10 +1,13 @@
 <h1>Event Show Page</h1>
-<div>
+<div ng-click="ctrl.selected_partial = 'editEvent'">
         <div>{{ctrl.specificEvents.name}}  </div>
         <div>{{ctrl.specificEvents.date | date:'MM/dd/yyyy @ h:mma'}}  </div>
         <div>{{ctrl.specificEvents.description}}  </div>
         <div>{{ctrl.specificEvents.location}}  </div>
         <div>{{ctrl.specificEvents.cost}}  </div>
         <div>{{ctrl.specificEvents.gender}}  </div>
+        <img ng-src={{ctrl.specificEvents.img}} >
 
 </div>
+
+<
