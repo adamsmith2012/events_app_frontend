@@ -7,7 +7,7 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular-route.min.js"></script>
 
   <script src="app.js" charset="utf-8"></script>
   <script
@@ -25,7 +25,10 @@
   <!-- Main nav starts -->
   <div class="navbar navbar-inverse navbar-static-top">
     <div class="container">
-      <img class="logo sport-panel" src="https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kjPGDpRBPkR3JwXs1M3EMoAJtlCkogvRj9...kz" ng-click="ctrl.getSports(); ctrl.selected_partial='index'" href="" class="navbar-brand">
+      <a ng-click="ctrl.getSports()" href="/">
+        <img class="logo" src="https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6kjPGDpRBPkR3JwXs1M3EMoAJtlCkogvRj9...kz" class="navbar-brand">
+      </a>
+
       <button class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -33,7 +36,7 @@
       </button>
       <div class="collapse navbar-collapse navHeaderCollapse">
         <ul class ="nav navbar-nav navbar-right">
-          <li><a ng-click="ctrl.selected_partial='events'; ctrl.getAllEvents();" href="">Search Events</a></li>
+          <li><a ng-click="ctrl.getAllEvents();" href="/events">Search Events</a></li>
           <li><a href="" data-toggle="modal" data-target="#createMeetUp">Create Event</a></li>
         </ul>
       </div>
@@ -42,7 +45,8 @@
     <!--Main nav ends  -->
 
     <!-- Partials -->
-    <div ng-if="ctrl.selected_partial=='index'" ng-include="'partials/index-partial.html'"></div>
+    <ng-view></ng-view>
+    <!-- <div ng-if="ctrl.selected_partial=='index'" ng-include="'partials/index-partial.html'"></div>
 
     <div ng-if="ctrl.selected_partial=='events'" ng-include="'partials/event-search.html'"></div>
 
@@ -50,7 +54,7 @@
 
     <div ng-if="ctrl.selected_partial=='sport'" ng-include="'partials/sportshowpage.html'"></div>
 
-    <div ng-if="ctrl.selected_partial=='editEvent'" ng-include="'partials/edit-event.html'"></div>
+    <div ng-if="ctrl.selected_partial=='editEvent'" ng-include="'partials/edit-event.html'"></div> -->
 
     <!-- End Partials -->
 
