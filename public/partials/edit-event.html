@@ -1,0 +1,83 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">Edit</h5>
+    </div>
+    <div class="panel-body">
+      <form ng-submit= "ctrl.editEvent();ctrl.selected_partial = 'eventShowPage' ">
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Name:</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" placeholder="{{ctrl.specificEvents.name}}"
+            ng-model="ctrl.editformdata.name">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Date:</label>
+          <div class="col-sm-5">
+            <input type="Date" class="form-control"
+            ng-model="ctrl.editformdata.date" min=>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Description:</label>
+          <div class="col-sm-5">
+            <textarea placeholder="{{ctrl.specificEvents.description}}" rows="5" style="width:100%"
+            ng-model="ctrl.editformdata.description"></textarea>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Cost:</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" placeholder="${{ctrl.specificEvents.cost}}"
+            ng-model="ctrl.editformdata.cost">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Event Image</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" placeholder="{{ctrl.specificEvents.img}}"
+            ng-model="ctrl.editformdata.img">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Location</label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" placeholder="{{ctrl.specificEvents.location}}"
+            ng-model="ctrl.editformdata.location">
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Gender:</label>
+          <div class="col-sm-5">
+            <input type="radio" name="gender" value="male"ng-model="ctrl.editformdata.gender"> Male
+            <input type="radio" name="gender"  value="female"
+            ng-model="ctrl.editformdata.gender"> Female
+            <input type="radio" name="gender" value="coed"
+            ng-model="ctrl.editformdata.gender"> Co-ed
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-sm-2 col-form-label">Sports Team</label>
+          <div class="col-sm-5">
+            <div ng-repeat="sport in ctrl.sports" class="checkbox">
+              <label>
+                <input type="radio" name="radio"value="{{sport.id}}" ng-model="ctrl.editformdata.sport_id">
+                {{sport.name}}
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <input class="btn btn-default" type="submit" name="" value="Submit">
+      </form>
+    </div>
+  </div>
+</div>

@@ -5,7 +5,7 @@
         ctrl.getSpecificEvent(event.id); ctrl.selected_partial = 'eventShowPage'">
         <div class="panel-heading">
           <h5 class="panel-title">{{event.name}}
-            <small class="pull-right">{{ event.date | date : "short"}}</small>
+            <small class="pull-right">{{ event.date | date:'MM/dd/yyyy @ h:mma'}}</small>
           </h5>
         </div>
         <div class="panel-body">
