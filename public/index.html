@@ -7,7 +7,14 @@
   <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+
   <script src="app.js" charset="utf-8"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+
 
   <link rel="stylesheet" href="main.css">
   <title></title>
@@ -58,7 +65,9 @@
             <h3 class="modal-title">Contact</h3>
             </div>
             <div class="modal-body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam</p>
+              <div class="">Phone: 304-483-4829</div>
+              <div class="">Email: wdir.remote@wdir.com</div>
+              <div class="">Support: support.remote@wdir.com</div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -78,7 +87,7 @@
             <h3 class="modal-title">About Us</h3>
           </div>
           <div class="modal-body">
-            <p>Meetup brings people together from all around the world Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ul </p>
+            <p>Sports meet up is an online portal that allows members to create sports event and find sports event in various location around the world. </p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -142,8 +151,11 @@
 
 
             </div>
+
             <div class="modal-footer">
-              <input ng-click="ctrl.addEvent()" type="submit" class="btn btn-primary" value="Create">
+              <button id="addSubmit" ng-click="ctrl.addEvent()" type="submit" class="btn btn-primary" value="Create" data-dismiss="modal">Create</button>
+
+
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </form>
         </div>

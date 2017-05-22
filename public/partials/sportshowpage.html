@@ -1,4 +1,4 @@
-<div class="container" ng-repeat="sport in ctrl.sports" ng-click="" ng-if="sport.is_showing">
+<div class="container sport-panel" ng-repeat="sport in ctrl.sports" ng-click="" ng-if="sport.is_showing">
   <div class="mainsport">{{sport.name}} Events</div>
     <div ng-if="sport.id === ctrl.sport_id">
       <div class="panel panel-default" ng-repeat="event in ctrl.events | orderBy:'date'" ng-click="ctrl.leaveSportsShowPage(); ctrl.selected_partial='sport';

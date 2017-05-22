@@ -1,5 +1,6 @@
 console.log('app.js');
 
+
 var app = angular.module('MyApp', []);
 
 if(window.location.origin == "http://localhost:8000") {
@@ -72,6 +73,8 @@ app.controller('mainController', ['$http', function($http){
         }).then(function(result){
             controller.createformdata = {};
             controller.events.unshift(result.data)
+            controller.getAllEvents();
+            controller.selected_partial='events';
         });
     };
 
@@ -163,5 +166,6 @@ app.controller('mainController', ['$http', function($http){
       return (sportFilter[event.sport.name] || noFilter(sportFilter)) &&
              (genderFilter[event.gender] || noFilter(genderFilter))
     }.bind(this)
+
 
 }]);
